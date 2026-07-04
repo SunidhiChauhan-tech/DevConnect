@@ -117,13 +117,13 @@ userSchema.index({ name: 'text', skills: 'text' })
 // ─────────────────────────────────────────────
 
 // pre('save') runs BEFORE every .save() call
-userSchema.pre('save', async function (next) {
+userSchema.pre('save', async function () {
   // 'this' refers to the current user document being saved
 
   // Only hash password if it was changed or is new
   // Without this check, every profile update would re-hash the already hashed password
   if (!this.isModified('password')) {
-    return next()   // skip hashing, move to next middleware
+    return   // skip hashing, move to next middleware
   }
 
   // Generate salt — adds randomness to the hash
@@ -133,7 +133,7 @@ userSchema.pre('save', async function (next) {
   // Replace plain text password with hashed version
   this.password = await bcrypt.hash(this.password, salt)
 
-  next()   // continue saving
+    
 })
 
 // ─────────────────────────────────────────────
