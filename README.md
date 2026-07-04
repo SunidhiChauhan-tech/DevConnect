@@ -7,9 +7,10 @@ connect with peers, and collaborate — built with the MERN stack.
 ---
 
 ## 🌐 Live Demo
-> Deployment in progress — backend on Render, frontend on Vercel
+> - **Frontend:** https://dev-connect-xi-rouge.vercel.app
+- **Backend API:** https://devconnect-qndq.onrender.com
+- **Health Check:** https://devconnect-qndq.onrender.com/health
 
----
 
 ## ✨ Features
 
@@ -161,5 +162,10 @@ CLOUDINARY_API_SECRET=your_cloudinary_api_secret
 ---
 
 ## 📌 Status
-> 🚧 Active Development — Core backend architecture complete.
-> Frontend integration in progress.
+## 📌 Status
+> ✅ Fully deployed and live!
+> - Backend on Render
+> - Frontend on Vercel  
+> - Database on MongoDB Atlas
+> - Images on Cloudinary
+> - Real-time notifications via Socket.io
