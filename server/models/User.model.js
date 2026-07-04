@@ -107,7 +107,7 @@ const userSchema = new mongoose.Schema(
 
 // We search users by email on every login
 // Index makes this lookup instant instead of scanning entire collection
-userSchema.index({ email: 1 })
+
 
 // We search developers by name and skills
 userSchema.index({ name: 'text', skills: 'text' })
