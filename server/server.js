@@ -21,7 +21,22 @@ const app = express()
 const httpServer = createServer(app)
 
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: function(origin, callback) {
+    // Allow these origins
+    const allowedOrigins = [
+      'http://localhost:5173',
+      process.env.CLIENT_URL
+    ]
+
+    // Allow requests with no origin (Postman, mobile apps)
+    if (!origin) return callback(null, true)
+
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true)   // allow ✅
+    } else {
+      callback(new Error(`CORS blocked: ${origin}`))  // block ❌
+    }
+  },
   credentials: true
 }))
 
